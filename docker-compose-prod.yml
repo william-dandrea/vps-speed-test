@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  speed-test-service:
+    build:
+      context: ./speed-test-nest
+      dockerfile: ./Dockerfile
+      target: production
+    restart: always
+    command: npm run start:dev
+    ports:
+      - 7650:3000
+    environment:
+      - APP_PORT=3000
+    networks:
+      - vps-speed-test-network
+
+  database:
+    image: "mongo:6.0.2"
+    restart: always
+    ports:
+      - 30930:27017
+    networks:
+      - vps-speed-test-network
+
+networks:
+  vps-speed-test-network:
+    driver: bridge
