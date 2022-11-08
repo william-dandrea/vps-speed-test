@@ -5,8 +5,8 @@ services:
       context: ./speed-test-nest
       dockerfile: ./Dockerfile
       target: production
-    restart: always
-    command: npm run start:dev
+    restart: unless-stopped
+    command: npm run start:prod
     ports:
       - 7650:3000
     environment:
