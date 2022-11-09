@@ -28,4 +28,8 @@ export class AppService {
     // { returnDocument: 'after' }
     return await this.tableCartModel.create(newConnection)
   }
+
+  public async deleteEverything(): Promise<any> {
+    return this.tableCartModel.deleteMany({});
+  }
 }

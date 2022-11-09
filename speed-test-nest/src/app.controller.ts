@@ -1,4 +1,4 @@
-import {Controller, Get, Param, Post} from '@nestjs/common';
+import {Controller, Delete, Get, Param, Post} from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -18,6 +18,11 @@ export class AppController {
   @Post('/new-connection')
   public async postOneConnection(): Promise<any> {
     return this.appService.postOneConnection();
+  }
+
+  @Delete('/delete')
+  public async deleteAllConnections(): Promise<any> {
+    return this.appService.deleteEverything();
   }
 
 
